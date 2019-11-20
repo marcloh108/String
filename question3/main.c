@@ -4,36 +4,28 @@
 
 void main()
 {
-    char str1[str_size],str2[str_size];
-    int flg=0;
+    char str[str_size];
+    int i, len, vowel, cons;
 
-        printf("Input the 1st string : ");
-        fgets(str1, sizeof str1, stdin);
-        printf("Input the 2nd string : ");
-        fgets(str2, sizeof str2, stdin);
+        printf("Input the string : ");
+        fgets(str, sizeof str, stdin);
 
-        int i = 0;
 
-        while(str1[i] == str2[i])
-        {
-            if(str1[i] == '\0' || str2[i] == '\0')
-                break;
+        vowel = 0;
+        cons = 0;
+        len = strlen(str);
 
-            i++;
-        }
-        if(str1[i-1] == '\0' && str2[i-1]=='\0')
-            flg = 0;
-        else if(str1[i] > str2[i])
-            flg = 1;
-        else if(str1[i] < str2[i])
-            flg = 1;
-
-        if(flg == 0)
-        {
-            printf("\nThe length of both strings are equal and \nalso both strings are equal.\n\n");
-        }
-        else if(flg == 1)
-        {
-            printf("\nThe length of the first string is different from second.\n\n");
-        }
+       for(i=0;i<len;i++)
+       {
+           if(str[i] == 'a' || str[i]=='e' || str[i]=='i' || str[i]=='o' || str[i] == 'u' || str[i] == 'A' || str[i] == 'E' || str[i] == 'I' || str[i] == 'O' || str[i] == 'U')
+           {
+               vowel++;
+           }
+           else if((str[i]>='a' && str[i]<='z') || (str[i]>='A' && str[i]<='Z'))
+           {
+               cons++;
+           }
+       }
+       printf("\nThe total number of vowel in the string is : %d\n", vowel);
+       printf("The toal number of consonant in the string is : %d\n\n", cons);
 }
