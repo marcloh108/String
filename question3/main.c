@@ -1,17 +1,18 @@
 #include <stdio.h>
+#include <string.h>
 
 void main()
 {
     char str[100];
-    int l=0;
+    int l, i;
 
         printf("Input the string : ");
         fgets(str, sizeof str, stdin);
-        printf("The characters of the string are : \n");
-     while(str[l]!='\0')
+        l=strlen(str);
+        printf("The characters of the string in reverse are : \n");
+     for(i=l;i>=0;i--)
      {
-         printf("%c ", str[l]);
-         l++;
+         printf("%c ", str[i]);
      }
      printf("\n");
 }
