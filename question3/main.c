@@ -3,19 +3,30 @@
 
 int main()
 {
-    FILE * pfile;
-    int a;
-    pfile=fopen("file.txt","r");
-    printf(" The content of the file is :\n The quick brown fox jumps over the lazy dog\n\n");
-    printf(" After removing the spaces the content is : \n");
-    if(pfile)
-    {
-        do{
-            a=fgetc(pfile);
-            if(isgraph(a)) putchar(a);
-            }while(a != EOF);
-        fclose(pfile);
-    }
-    printf("\n\n");
-    return 0;
+   char str1[100];
+   char newString[10][10];
+   int i, j, ctr;
+   printf(" Input a string : ");
+   fgets(str1, sizeof str1, stdin);
+
+   j=0;ctr=0;
+   for(i=0;i<=(strlen(str1));i++)
+   {
+       if(str1[i]==' ' || str1[i]=='\0')
+       {
+           newString[ctr][j]='\0';
+           ctr++;
+           j=0;
+       }
+       else
+       {
+           newString[ctr][j]=str1[i];
+           j++;
+       }
+   }
+   printf("\n String or words after split by space are: \n");
+   for(i=0;i<ctr;i++)
+       printf(" %s\n", newString[i]);
+   return 0;
+
 }
