@@ -1,28 +1,21 @@
 #include <stdio.h>
-#include <string.h>
-#define str_size 100
+#include <ctype.h>
 
-void main()
+int main()
 {
-    char str[100], sstr[100];
-    int pos, l, c = 0;
-
-        printf("Input the string : ");
-        fgets(str, sizeof str, stdin);
-
-        printf("Input the position to start extraction :");
-        scanf("%d", &pos);
-
-        printf("Input the length of substring :");
-        scanf("%d", &l);
-
-        while(c < l)
-        {
-            sstr[c] = str[pos+c-1];
-            c++;
-        }
-        sstr[c] = '\0';
-
-        printf("The substring retrieve from the string is : \" %s\" ",sstr);
-
+    FILE * pfile;
+    int a;
+    pfile=fopen("file.txt","r");
+    printf(" The content of the file is :\n The quick brown fox jumps over the lazy dog\n\n");
+    printf(" After removing the spaces the content is : \n");
+    if(pfile)
+    {
+        do{
+            a=fgetc(pfile);
+            if(isgraph(a)) putchar(a);
+            }while(a != EOF);
+        fclose(pfile);
+    }
+    printf("\n\n");
+    return 0;
 }
