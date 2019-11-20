@@ -4,28 +4,25 @@
 
 void main()
 {
-    char str[str_size];
-    int i, len, vowel, cons;
+    char str[100], sstr[100];
+    int pos, l, c = 0;
 
         printf("Input the string : ");
         fgets(str, sizeof str, stdin);
 
+        printf("Input the position to start extraction :");
+        scanf("%d", &pos);
 
-        vowel = 0;
-        cons = 0;
-        len = strlen(str);
+        printf("Input the length of substring :");
+        scanf("%d", &l);
 
-       for(i=0;i<len;i++)
-       {
-           if(str[i] == 'a' || str[i]=='e' || str[i]=='i' || str[i]=='o' || str[i] == 'u' || str[i] == 'A' || str[i] == 'E' || str[i] == 'I' || str[i] == 'O' || str[i] == 'U')
-           {
-               vowel++;
-           }
-           else if((str[i]>='a' && str[i]<='z') || (str[i]>='A' && str[i]<='Z'))
-           {
-               cons++;
-           }
-       }
-       printf("\nThe total number of vowel in the string is : %d\n", vowel);
-       printf("The toal number of consonant in the string is : %d\n\n", cons);
+        while(c < l)
+        {
+            sstr[c] = str[pos+c-1];
+            c++;
+        }
+        sstr[c] = '\0';
+
+        printf("The substring retrieve from the string is : \" %s\" ",sstr);
+
 }
